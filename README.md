@@ -111,5 +111,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-#### Note:
-This library is just a helper for official [Google Consent SDK Android](https://github.com/googleads/googleads-consent-sdk-android) to simplify integrating it the comply of the app to GDPR policy.
+#### More details:
+  [Requesting Consent from European Users](https://developers.google.com/admob/android/eu-consent)
