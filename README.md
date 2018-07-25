@@ -4,8 +4,8 @@ Android Consent SDK Helper is a library that helps you to integrate and use Goog
 You can check the sample app for usage of this library.
 
 ## Video
-[![Video](https://i.ytimg.com/vi/OZaq1Ljqge8/hqdefault.jpg)](https://youtu.be/OZaq1Ljqge8 "Video")
-
+ 
+[![Android-Consent-SDK-Helper](https://img.youtube.com/vi/OZaq1Ljqge8/0.jpg)](https://youtu.be/OZaq1Ljqge8 "Android-Consent-SDK-Helper")
 ## Usage
 
 #### Gradle
