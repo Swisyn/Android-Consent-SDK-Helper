@@ -6,6 +6,7 @@ You can check the sample app for usage of this library.
 ## Video
  
 [![Android-Consent-SDK-Helper](https://img.youtube.com/vi/OZaq1Ljqge8/0.jpg)](https://youtu.be/OZaq1Ljqge8 "Android-Consent-SDK-Helper")
+
 ## Usage
 
 #### Gradle
@@ -29,6 +30,7 @@ implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.0'
 ```
 
 #### Implementation
+
 ```kotlin
 val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, admobTestDeviceId, BuildConfig.DEBUG)
         consentSDK.checkConsent(object : ConsentCallback {
@@ -52,13 +54,6 @@ val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, admobTestDeviceI
 
 ```
 ---
-> How checkConsent function works:
-```
-- Check the location of the user if it's within EEA and with unknown status.
-- If the user is within EEA and with unknown status show the dialog for consent with two options to see relevant ads or to show less relevant ads.
-- The function retrieve a callback after the consent has been submitted or if it's not necessary not show the dialog.
-- It saves the consent of the user and if the user is not within EEA it saves show relevant ads status.
-```
 
 #### To generate ad requests
 
@@ -82,7 +77,7 @@ admobTestDeviceId: String = "" // Check the logcat to get a test device id
 #### Change or revoke consent
 There is also a preference, to allow users to update their consent just like the Google App. 
 
-I have translated all the languages spoken in European Region, all pull requests are welcome to make translations clear. ::heart::
+I have translated all the languages spoken in European Region, all pull requests are welcome to make translations clear.:heart:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -117,5 +112,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-# Note:
-> ~ This library is just a helper for official [Google Consent SDK Android](https://github.com/googleads/googleads-consent-sdk-android) to simplify integrating it the comply of the app to GDPR policy.
+#### Note:
+This library is just a helper for official [Google Consent SDK Android](https://github.com/googleads/googleads-consent-sdk-android) to simplify integrating it the comply of the app to GDPR policy.
