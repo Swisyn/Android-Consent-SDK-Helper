@@ -13,7 +13,7 @@ You can check the [sample](https://github.com/Swisyn/Android-Consent-SDK-Helper/
 
 #### Gradle
 
-Add dependency in your build.gradle
+Add dependency in your app-level build.gradle
 
 ```groovy
 implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.0'
