@@ -1,5 +1,5 @@
 # Android Consent SDK Helper
-Android Consent SDK Helper is a library that helps you to integrate and use Google Consent library easily.
+Android Consent SDK Helper is a library that helps you to integrate and use [Google Consent SDK Android](https://github.com/googleads/googleads-consent-sdk-android) library easily.
 
 You can check the [sample](https://github.com/Swisyn/Android-Consent-SDK-Helper/tree/master/sample "Sample App")
  for usage of this library.
