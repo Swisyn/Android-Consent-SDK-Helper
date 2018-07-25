@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Poistu mainosten muokkauksesta</string>
+    <string name="preference_opt_out_summary">Pyydä sovelluksia olemaan käyttämättä mainostunnustasi profiilien luomiseen tai henkilökohtaisten mainosten näyttämiseen.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Poista käytöstä kiinnostuksen kohteena olevat mainokset?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Mainokset näkyvät edelleen, mutta ne eivät välttämättä ole omien etujen mukaisia. </strong><br><br>Huomaa, jos tyhjenät välimuistin, menetät opt-out-asetukset.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Kunnossa</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Peruuttaa</string>
+
+</resources>

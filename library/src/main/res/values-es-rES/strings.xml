@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Optar por no personalizar los anuncios</string>
+    <string name="preference_opt_out_summary">Indique a las aplicaciones que no utilicen su ID de publicidad para crear perfiles o mostrar anuncios personalizados.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">¿Desea excluirse de los anuncios basados ​​en intereses?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Todavía verá anuncios, pero es posible que no se basen en sus intereses. </strong><br><br>Tenga en cuenta que si borra su caché, perderá su configuración de cancelación.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Dd Acuerdo</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Cancelar</string>
+
+</resources>

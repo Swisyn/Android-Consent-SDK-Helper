@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Zrušte Personalizaci reklam</string>
+    <string name="preference_opt_out_summary">Informujte, aby vaše reklamní ID nepoužívalo pro vytváření profilů ani zobrazování personalizovaných reklam.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Odhlásit reklamy založené na zájmech?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Reklamy se budou zobrazovat, ale nemusí být založeny na vašich zájmech. </strong><br><br>Poznámka, pokud vymazáte mezipaměť, ztratíte nastavení odhlášení.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">OK</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Zrušení</string>
+
+</resources>

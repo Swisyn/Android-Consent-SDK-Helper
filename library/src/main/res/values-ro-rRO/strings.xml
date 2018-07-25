@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Renunțați la personalizarea anunțurilor</string>
+    <string name="preference_opt_out_summary">Instruiți aplicațiile să nu utilizeze ID-ul de publicitate pentru a crea profiluri sau pentru a vă afișa anunțuri personalizate.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Renunțați la anunțurile bazate pe categorii de interes?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Veți vedea în continuare anunțuri, dar este posibil ca acestea să nu se bazeze pe interesele dvs. </strong><br><br>Notă dacă vă ștergeți memoria cache, veți pierde setarea de renunțare.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">O.K</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Anulare</string>
+
+</resources>

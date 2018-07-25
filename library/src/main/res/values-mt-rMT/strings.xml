@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Tintefa \'mir-Reklami Personalizzazzjoni</string>
+    <string name="preference_opt_out_summary">Tgħallem applikazzjonijiet biex ma tużax l-ID ta \'reklamar tiegħek biex tibni profili jew turi li inti reklami personalizzati.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Tintefa \'reklami bbażati fuq l-interessi?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Xorta tkun tista \'tara reklami, iżda dawn ma jistgħux ikunu bbażati fuq l-interessi tiegħek. </strong><br><br>Nota jekk tiċċara l-cache tiegħek, int titlef l-iffissar ta\' opt-out.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">kollox sew</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Ikkanċella</string>
+
+</resources>

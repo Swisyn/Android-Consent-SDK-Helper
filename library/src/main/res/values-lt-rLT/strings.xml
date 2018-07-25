@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Atsisakyti skelbimų pritaikymo</string>
+    <string name="preference_opt_out_summary">Instrukkite programas nenaudoti savo reklamavimo ID, norėdami kurti profilius arba rodyti suasmenintus skelbimus.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Atsisakyti skelbimų pagal pomėgius?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Jūs vis tiek matysite skelbimus, bet jie gali būti ne pagal jūsų interesus. </strong><br><br>Pastaba, jei išvalysite talpyklą, prarasite pasirinkimo atsisakymą.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Gerai</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Atšaukti</string>
+
+</resources>

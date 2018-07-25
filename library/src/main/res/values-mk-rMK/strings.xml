@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Откажи од Персонализација на реклами</string>
+    <string name="preference_opt_out_summary">Наведете апликации за да не го користите вашиот ID за рекламирање за да изградите профили или да ви покаже персонализирани реклами.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Оставете реклами базирани на интерес?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Вие сепак ќе гледате реклами, но тие можеби нема да бидат засновани на вашите интереси. </strong><br><br>Имајте ако ја исчистите кешот, ќе го изгубите поставувањето за откажување.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">добро</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Откажи</string>
+
+</resources>

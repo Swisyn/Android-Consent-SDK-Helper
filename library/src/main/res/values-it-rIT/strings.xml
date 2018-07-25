@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Disabilita la personalizzazione degli annunci</string>
+    <string name="preference_opt_out_summary">Chiedi alle app di non utilizzare il tuo ID pubblicità per creare profili o mostrare annunci personalizzati.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Disattivare gli annunci basati sugli interessi?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Continuerai a vedere gli annunci, ma potrebbero non essere basati sui tuoi interessi. </strong><br><br>Nota se svuoti la cache, perderai l\'impostazione di disattivazione.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">OK</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Annulla</string>
+
+</resources>

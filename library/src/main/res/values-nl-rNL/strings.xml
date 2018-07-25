@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Afmelden voor advertentiepersonalisatie</string>
+    <string name="preference_opt_out_summary">Instrueer apps om uw advertentie-ID niet te gebruiken om profielen te maken of gepersonaliseerde advertenties weer te geven.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Afmelden voor op interesses gebaseerde advertenties?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>U zult nog steeds advertenties te zien krijgen, maar deze zijn mogelijk niet gebaseerd op uw interesses. </strong><br><br>Let op dat als u uw cache wist, u uw opt-out-instelling verliest.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">OK</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Annuleer</string>
+
+</resources>

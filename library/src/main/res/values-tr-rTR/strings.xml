@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Kişiselleştirilmiş reklamları devre dışı bırak</string>
+    <string name="preference_opt_out_summary">Uygulamalara, profil oluşturmak veya kişiselleştirilmiş reklamlar göstermek için reklam kimliğinizi kullanmamasını söyleyin.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">İlgi alanına dayalı reklamlar devre dışı bırakılsın mı?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Reklamları görmeye devam edersiniz, ancak ilgi alanlarınıza dayalı olmayabilirler. </strong><br><br>Eğer uygulama önbelleğini temizlerseniz, devre dışı bırakma ayarınızı kaybedersiniz.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Tamam</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Vazgeç</string>
+
+</resources>

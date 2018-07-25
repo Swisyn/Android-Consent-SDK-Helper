@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Rezygnacja z personalizacji reklam</string>
+    <string name="preference_opt_out_summary">Poinstruuj aplikacje, by nie używały identyfikatora wyświetlania reklam do tworzenia profili lub wyświetlania spersonalizowanych reklam.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Rezygnacja z reklam opartych na zainteresowaniach?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Nadal będziesz widzieć reklamy, ale nie będą one oparte na Twoich zainteresowaniach. </strong><br><br>Uwaga jeśli wyczyścisz pamięć podręczną, utracisz ustawienie rezygnacji.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">OK</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Anuluj</string>
+
+</resources>

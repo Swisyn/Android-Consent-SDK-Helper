@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Откажете се от персонализирането на рекламите</string>
+    <string name="preference_opt_out_summary">Инструктирайте приложенията да не използват своя рекламен идентификатор, за да създават профили или да ви показват персонализирани реклами.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Отмяна на рекламите въз основа на интереси?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Ще продължите да виждате реклами, но може да не се основават на вашите интереси. </strong><br><br>Забележете, ако изчистите кеша, ще загубите настройката за отказване.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Добре</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Отказ</string>
+
+</resources>

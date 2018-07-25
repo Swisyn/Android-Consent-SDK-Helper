@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Αποκλείστε την Εξατομίκευση διαφημίσεων</string>
+    <string name="preference_opt_out_summary">Ενημερώστε τις εφαρμογές να μην χρησιμοποιούν το διαφημιστικό σας αναγνωριστικό για να δημιουργούν προφίλ ή να σας εμφανίζουν εξατομικευμένες διαφημίσεις.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Αποκλείστε τις διαφημίσεις βάσει ενδιαφέροντος;</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Θα εξακολουθείτε να βλέπετε διαφημίσεις, αλλά ενδέχεται να μην βασίζονται στα ενδιαφέροντά σας. </strong><br><br>Σημειώστε εάν διαγράψετε την προσωρινή μνήμη, θα χάσετε τη ρύθμιση εξαίρεσης.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Εντάξει</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Ματαίωση</string>
+
+</resources>

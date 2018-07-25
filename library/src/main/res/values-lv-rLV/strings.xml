@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Atteikšanās no reklāmu personalizēšanas</string>
+    <string name="preference_opt_out_summary">Norādiet lietotnēm neizmantot savu reklāmas ID, lai izveidotu profilus vai rādītu personalizētus reklāmas.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Atteikties no interešu reklāmām?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Jūs joprojām redzēsit reklāmas, taču tās var nebūt balstītas uz jūsu interesēm. </strong><br><br>Piezīme, ja iztīriet kešatmiņu, jūs zaudēsiet atteikšanās iestatījumu.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Labi</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Atcelt</string>
+
+</resources>

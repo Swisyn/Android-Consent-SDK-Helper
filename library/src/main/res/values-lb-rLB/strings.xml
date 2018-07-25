@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Opt out of Personaliséierung</string>
+    <string name="preference_opt_out_summary">Verweisen Apps net fir Är Reklame-ID ze benotzen fir Profiler ze bauen oder Iech personaliséiert Reklamme ze weisen.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Opt out of interest-based ads?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Dir sicht ëmmer Reklammen, awer se kënnen net op Ären Interessen baséieren. </strong><br><br>Not datt Dir Är Cache kloer klickt, kritt Dir Är Optiounszoustand verléieren.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">OK</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Ofbriechen</string>
+
+</resources>

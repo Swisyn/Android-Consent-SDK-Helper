@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Desativar a personalização de anúncios</string>
+    <string name="preference_opt_out_summary">Instrua os apps a não usarem seu código de publicidade para criar perfis ou mostrar anúncios personalizados.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Desativar anúncios com base em interesses?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>Você ainda verá anúncios, mas eles podem não ser baseados em seus interesses. </strong><br><br>Não se você limpar seu cache, perderá sua configuração de desativação.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">Está bem</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">Cancelar</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="preference_opt_out_title">Не дозволите персонализацију огласа</string>
+    <string name="preference_opt_out_summary">Упутите апликације да не користе вашу ИД оглашавања да би направили профиле или приказали персонализиране огласе.</string>
+
+    <string name="preference_opt_out_confirmation_dialog_title">Одјавите огласе засноване на занимању?</string>
+    <string name="preference_opt_out_confirmation_dialog_message"><![CDATA[<strong>И даље ћете видети огласе, али они можда неће бити засновани на вашим интересима.</strong><br><br>Одаберите ако избришете кеш меморију, изгубићете подешавање за искључивање.]]></string>
+    <string name="preference_opt_out_confirmation_dialog_ok">ок</string>
+    <string name="preference_opt_out_confirmation_dialog_cancel">отказати</string>
+
+</resources>
