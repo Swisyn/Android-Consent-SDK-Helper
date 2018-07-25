@@ -38,18 +38,15 @@ val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, admobTestDeviceI
         consentSDK.checkConsent(object : ConsentCallback {
             override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
                 if (isRequestLocationInEeaOrUnknown) {
-                    Log.e("ConsentSDKHelper", "User is from EU region")
-
-                    labelTextView.text = getString(R.string.user_within_eea_text, getPersonalizedOrNotSuffix(ConsentSDKHelper.isUserLocationWithinEea(this@MainActivity)))
+                    Log.e("ConsentSDKHelper", "User is from EU region, make a request for consent dialog")
 
                     consentSDK.requestConsent(object : ConsentStatusCallback {
                         override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
-                            labelTextView.text = getString(R.string.user_within_eea_text, getPersonalizedOrNotSuffix(isConsentPersonalized))
+                        // Logic
                         }
                     })
                 } else {
-                    Log.e("ConsentSDKHelper", "User is not from EU region")
-                    container.removeView(buttonChangeConsentSettings)
+                    Log.e("ConsentSDKHelper", "User is not from EU region, show ads normally.")
                 }
             }
         })
