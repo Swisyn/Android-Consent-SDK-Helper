@@ -2,9 +2,10 @@ package com.cuneytayyildiz.android.consent.sdk.helper.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.cuneytayyildiz.android.consent.sdk.helper.ConsentSDKHelper
@@ -17,9 +18,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var labelTextView: TextView
     private lateinit var buttonChangeConsentSettings: Button
     private lateinit var buttonOpenSettings: Button
+    private lateinit var checkBoxEuRegion: CheckBox
 
-    private val publisherId: String = ""
-    private val policyURL: String = ""
+    private lateinit var publisherId: String
+    private lateinit var policyURL: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,24 +32,16 @@ class MainActivity : AppCompatActivity() {
         labelTextView = findViewById(R.id.label_gdpr_status)
         buttonChangeConsentSettings = findViewById(R.id.button_change_consent_settings)
         buttonOpenSettings = findViewById(R.id.button_open_settings)
+        checkBoxEuRegion = findViewById(R.id.checkbox_eu_region)
+        checkBoxEuRegion.isChecked = PreferenceManager.getDefaultSharedPreferences(this@MainActivity).getBoolean("isEEA", true)
 
-        val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, "", BuildConfig.DEBUG, true)
+        publisherId = getString(R.string.admob_publisher_id)
+        policyURL = getString(R.string.privacy_policy_url)
+
+        val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, "", BuildConfig.DEBUG, checkBoxEuRegion.isChecked)
         consentSDK.checkConsent(object : ConsentCallback {
             override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
-                if (isRequestLocationInEeaOrUnknown) {
-                    Log.e("ConsentSDKHelper", "User is from EU region")
-
-                    labelTextView.text = getString(R.string.user_within_eea_text, getPersonalizedOrNotSuffix(ConsentSDKHelper.isUserLocationWithinEea(this@MainActivity)))
-
-                    consentSDK.requestConsent(object : ConsentStatusCallback {
-                        override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
-                            labelTextView.text = getString(R.string.user_within_eea_text, getPersonalizedOrNotSuffix(isConsentPersonalized))
-                        }
-                    })
-                } else {
-                    Log.e("ConsentSDKHelper", "User is not from EU region")
-                    container.removeView(buttonChangeConsentSettings)
-                }
+                labelTextView.text = getString(R.string.user_within_eea_text, getPersonalizedOrNotSuffix(ConsentSDKHelper.isConsentPersonalized(this@MainActivity)))
             }
         })
 
@@ -62,7 +57,9 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
+        checkBoxEuRegion.setOnCheckedChangeListener { _, b -> PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit().putBoolean("isEEA", b).apply() }
         buttonOpenSettings.setOnClickListener { startActivity(Intent(this@MainActivity, SettingsActivity::class.java)) }
+
     }
 
     fun getPersonalizedOrNotSuffix(result: Boolean): String {

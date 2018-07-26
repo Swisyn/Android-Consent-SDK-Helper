@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.cuneytayyildiz.android.consent.sdk.helper.preference.ConsentSDKHelperPreference android:key="preference_ad_choice"  />
+    <com.cuneytayyildiz.android.consent.sdk.helper.preference.ConsentSDKHelperPreference
+        android:key="preference_ad_choice"
+        app:csdk_privacy_policy_url="@string/admob_publisher_id"
+        app:csdk_publisher_id="@string/privacy_policy_url" />
 
-
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>

@@ -17,7 +17,7 @@
         android:gravity="center"
         android:text="@string/user_not_within_eea_text"
         android:textSize="20sp"
-        android:textStyle="bold"  />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button_change_consent_settings"
@@ -31,12 +31,11 @@
         android:layout_height="wrap_content"
         android:text="Settings Screen" />
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/checkbox_eu_region"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-    </com.google.android.gms.ads.AdView>
+        android:checked="true"
+        android:padding="16dp"
+        android:text="Test EU Region" />
 </LinearLayout>

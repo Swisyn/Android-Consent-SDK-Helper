@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android-Admob-GDPR-Helper</string>
+    <string name="app_name">Android-Consent-SDK-Helper</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="user_within_eea_text">You are within the EEA you can update your settings using the button bellow.\nYour consent is: %1$s</string>

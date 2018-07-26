@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ConsentSDKHelperPreference">
+        <attr name="csdk_publisher_id" format="string" />
+        <attr name="csdk_privacy_policy_url" format="string"/>
+        <attr name="csdk_title_size" format="dimension"/>
+    </declare-styleable>
+</resources>

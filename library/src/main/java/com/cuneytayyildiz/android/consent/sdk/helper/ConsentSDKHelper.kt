@@ -3,6 +3,7 @@ package com.cuneytayyildiz.android.consent.sdk.helper
 import android.content.Context
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentCallback
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentInformationCallback
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentStatusCallback
@@ -40,8 +41,9 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
             PreferenceManager.getDefaultSharedPreferences(context.applicationContext).edit().putBoolean(user_preference, value).apply()
         }
 
-        fun getAdRequest(context: Context, isDebug: Boolean = false, admobTestDeviceId: String = ""): AdRequest {
+        fun getAdRequest(context: Context, isDebug: Boolean = false, admobTestDeviceId: String? = ""): AdRequest {
             if (isConsentPersonalized(context)) {
+                Log.w("ConsentSDKHelper", "Personalized ad request is generating")
                 return when {
                     isDebug -> AdRequest.Builder()
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -51,6 +53,7 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
                             .build()
                 }
             } else {
+                Log.w("ConsentSDKHelper", "Non-Personalized ad request is generating")
                 return when {
                     isDebug -> AdRequest.Builder()
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -71,7 +74,7 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
         }
     }
 
-    fun checkConsent(callback: ConsentCallback) {
+    fun checkConsent(callback: ConsentCallback? = null) {
         initConsentInformation(object : ConsentInformationCallback {
             override fun onResult(consentInformation: ConsentInformation, consentStatus: ConsentStatus?) {
                 when (consentStatus) {
@@ -79,21 +82,21 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
                         if (consentInformation.isRequestLocationInEeaOrUnknown) {
                             requestConsent(object : ConsentStatusCallback {
                                 override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
-                                    callback.onResult(isRequestLocationInEeaOrUnknown)
+                                    callback?.onResult(isRequestLocationInEeaOrUnknown)
                                 }
                             })
                         } else {
                             setConsentPersonalized(context, PERSONALIZED)
-                            callback.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
+                            callback?.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
                         }
                     }
                     ConsentStatus.NON_PERSONALIZED -> {
                         setConsentPersonalized(context, NON_PERSONALIZED)
-                        callback.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
+                        callback?.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
                     }
                     else -> {
                         setConsentPersonalized(context, PERSONALIZED)
-                        callback.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
+                        callback?.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
                     }
                 }
 
@@ -103,12 +106,12 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
             override fun onFailed(consentInformation: ConsentInformation, reason: String?) {
                 setUserLocationWithinEea(context, consentInformation.isRequestLocationInEeaOrUnknown)
 
-                callback.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
+                callback?.onResult(consentInformation.isRequestLocationInEeaOrUnknown)
             }
         })
     }
 
-    fun requestConsent(callback: ConsentStatusCallback?) {
+    fun requestConsent(callback: ConsentStatusCallback? = null) {
         var privacyUrl: URL? = null
         try {
             privacyUrl = URL(privacyPolicyURL)
