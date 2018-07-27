@@ -16,7 +16,7 @@ You can check the [sample](https://github.com/Swisyn/Android-Consent-SDK-Helper/
 Add dependency in your app-level build.gradle
 
 ```groovy
-implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.0'
+implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.2'
 ```
 
 <b>The constructor has 6 parameters, first 3 of them are mandatory.</b>
@@ -33,30 +33,27 @@ implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.0'
 
 #### Implementation
 
+> Simply call the **checkConsent()**
+
 ```kotlin
-val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, admobTestDeviceId, BuildConfig.DEBUG)
+ConsentSDKHelper(this, publisherId, policyURL).checkConsent()
+```
+
+> or
+
+```kotlin
+ val consentSDK = ConsentSDKHelper(this, publisherId, policyURL)
         consentSDK.checkConsent(object : ConsentCallback {
             override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
-                if (isRequestLocationInEeaOrUnknown) {
-                    Log.e("ConsentSDKHelper", "User is from EU region, make a request for consent dialog")
-
-                    consentSDK.requestConsent(object : ConsentStatusCallback {
-                        override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
-                        // Logic
-                        }
-                    })
-                } else {
-                    Log.e("ConsentSDKHelper", "User is not from EU region, show ads normally.")
-                }
+                // do something with the result
             }
         })
-
 ```
 ---
 
 #### To generate ad requests
 
-After you have implemented this library, you should use ConsentSDKHelper.getAdRequest function to create new ad requests. 
+After you have implemented this library, you should use **ConsentSDKHelper.getAdRequest** function to create new ad requests. 
 The function has 3 parameters including 2 optionals to get test ads.
 ```kotlin
 ConsentSDKHelper.getAdRequest(
@@ -66,11 +63,20 @@ admobTestDeviceId: String = "" // Check the logcat to get a test device id
 ):
 ```
  
+**for production**
 ```kotlin
     // load a banner ad
     adView.loadAd(ConsentSDKHelper.getAdRequest(context));
     // load a Interstitial ad
     interstitialAd.loadAd(ConsentSDKHelper.getAdRequest(context));
+```
+
+**for development**
+```kotlin
+    // load a banner ad
+    adView.loadAd(ConsentSDKHelper.getAdRequest(context, BuildConfig.DEBUG, admobTestDeviceId));
+    // load a Interstitial ad
+    interstitialAd.loadAd(ConsentSDKHelper.getAdRequest(context, BuildConfig.DEBUG, admobTestDeviceId));
 ```
 
 #### Change or revoke consent
@@ -80,13 +86,26 @@ I have translated all the languages spoken in European Region, all pull requests
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.cuneytayyildiz.android.consent.sdk.helper.preference.ConsentSDKHelperPreference android:key="preference_ad_choice" />
+    <com.cuneytayyildiz.android.consent.sdk.helper.preference.ConsentSDKHelperPreference
+        android:key="preference_ad_choice"
+        app:csdk_privacy_policy_url="@string/admob_publisher_id"
+        app:csdk_publisher_id="@string/privacy_policy_url" />
 
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>
 ```
- 
+
+**Publisher ID and Privacy Policy URL attributes must not be empty**
+```xml
+   <declare-styleable name="ConsentSDKHelperPreference">
+        <attr name="csdk_publisher_id" format="string" />
+        <attr name="csdk_privacy_policy_url" format="string"/>
+        <attr name="csdk_title_size" format="dimension"/>
+    </declare-styleable>
+```
+
 ### License
 MIT License
 
