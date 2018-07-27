@@ -16,7 +16,7 @@ You can check the [sample](https://github.com/Swisyn/Android-Consent-SDK-Helper/
 Add dependency in your app-level build.gradle
 
 ```groovy
-implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.1'
+implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.2'
 ```
 
 <b>The constructor has 6 parameters, first 3 of them are mandatory.</b>
