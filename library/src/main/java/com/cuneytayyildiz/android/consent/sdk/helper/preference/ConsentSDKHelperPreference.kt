@@ -53,23 +53,31 @@ constructor(
     }
 
     override fun onClick() {
-        AlertDialog.Builder(context)
-                .setTitle(R.string.preference_opt_out_confirmation_dialog_title)
-                .setMessage(context.getString(R.string.preference_opt_out_confirmation_dialog_message).toHtml())
-                .setPositiveButton(R.string.preference_opt_out_confirmation_dialog_ok) { dialog, _ ->
-                    dialog.dismiss()
+        if (ConsentSDKHelper.isConsentPersonalized(context)) {
+            AlertDialog.Builder(context)
+                    .setTitle(R.string.preference_opt_out_confirmation_dialog_title)
+                    .setMessage(context.getString(R.string.preference_opt_out_confirmation_dialog_message).toHtml())
+                    .setPositiveButton(R.string.preference_opt_out_confirmation_dialog_ok) { dialog, _ ->
+                        dialog.dismiss()
 
-                    consentSDKHelper?.requestConsent(object : ConsentStatusCallback {
-                        override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
-                            isChecked = !isConsentPersonalized
-                        }
-                    })
+                        requestConsent()
 
-                }
-                .setNegativeButton(R.string.preference_opt_out_confirmation_dialog_cancel) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .show()
+                    }
+                    .setNegativeButton(R.string.preference_opt_out_confirmation_dialog_cancel) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+        } else {
+            requestConsent()
+        }
+    }
+
+    private fun requestConsent() {
+        consentSDKHelper?.requestConsent(object : ConsentStatusCallback {
+            override fun onResult(isRequestLocationInEeaOrUnknown: Boolean, isConsentPersonalized: Boolean) {
+                isChecked = !isConsentPersonalized
+            }
+        })
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder?) {

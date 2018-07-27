@@ -119,41 +119,43 @@ class ConsentSDKHelper(private val context: Context, private val publisherId: St
             e.printStackTrace()
         }
 
-        form = ConsentForm.Builder(context, privacyUrl)
-                .withListener(object : ConsentFormListener() {
-                    override fun onConsentFormLoaded() {
-                        form.show()
-                    }
-
-                    override fun onConsentFormError(reason: String?) {
-                        isRequestLocationIsEeaOrUnknown(object : LocationIsEeaOrUnknownCallback {
-                            override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
-                                callback?.onResult(isRequestLocationInEeaOrUnknown, false)
-                            }
-                        })
-                    }
-
-                    override fun onConsentFormOpened() {}
-
-                    override fun onConsentFormClosed(consentStatus: ConsentStatus?, userPrefersAdFree: Boolean?) {
-                        val isConsentPersonalized = when (consentStatus) {
-                            ConsentStatus.NON_PERSONALIZED -> NON_PERSONALIZED
-                            else -> PERSONALIZED
+        if (privacyUrl != null) {
+            form = ConsentForm.Builder(context, privacyUrl)
+                    .withListener(object : ConsentFormListener() {
+                        override fun onConsentFormLoaded() {
+                            form.show()
                         }
 
-                        setConsentPersonalized(context, isConsentPersonalized)
+                        override fun onConsentFormError(reason: String?) {
+                            isRequestLocationIsEeaOrUnknown(object : LocationIsEeaOrUnknownCallback {
+                                override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
+                                    callback?.onResult(isRequestLocationInEeaOrUnknown, false)
+                                }
+                            })
+                        }
 
-                        isRequestLocationIsEeaOrUnknown(object : LocationIsEeaOrUnknownCallback {
-                            override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
-                                callback?.onResult(isRequestLocationInEeaOrUnknown, isConsentPersonalized)
+                        override fun onConsentFormOpened() {}
+
+                        override fun onConsentFormClosed(consentStatus: ConsentStatus?, userPrefersAdFree: Boolean?) {
+                            val isConsentPersonalized = when (consentStatus) {
+                                ConsentStatus.NON_PERSONALIZED -> NON_PERSONALIZED
+                                else -> PERSONALIZED
                             }
-                        })
-                    }
-                })
-                .withPersonalizedAdsOption()
-                .withNonPersonalizedAdsOption()
-                .build()
-        form.load()
+
+                            setConsentPersonalized(context, isConsentPersonalized)
+
+                            isRequestLocationIsEeaOrUnknown(object : LocationIsEeaOrUnknownCallback {
+                                override fun onResult(isRequestLocationInEeaOrUnknown: Boolean) {
+                                    callback?.onResult(isRequestLocationInEeaOrUnknown, isConsentPersonalized)
+                                }
+                            })
+                        }
+                    })
+                    .withPersonalizedAdsOption()
+                    .withNonPersonalizedAdsOption()
+                    .build()
+            form.load()
+        }
     }
 
     private fun isRequestLocationIsEeaOrUnknown(callback: LocationIsEeaOrUnknownCallback) {

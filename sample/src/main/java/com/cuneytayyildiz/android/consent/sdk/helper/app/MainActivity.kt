@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         checkBoxEuRegion = findViewById(R.id.checkbox_eu_region)
         checkBoxEuRegion.isChecked = PreferenceManager.getDefaultSharedPreferences(this@MainActivity).getBoolean("isEEA", true)
 
-        publisherId = getString(R.string.admob_publisher_id)
-        policyURL = getString(R.string.privacy_policy_url)
+        publisherId = getString(R.string.csdk_admob_publisher_id)
+        policyURL = getString(R.string.csdk_privacy_policy_url)
 
         val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, "", BuildConfig.DEBUG, checkBoxEuRegion.isChecked)
         consentSDK.checkConsent(object : ConsentCallback {

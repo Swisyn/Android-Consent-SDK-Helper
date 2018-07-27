@@ -4,7 +4,7 @@
 
     <com.cuneytayyildiz.android.consent.sdk.helper.preference.ConsentSDKHelperPreference
         android:key="preference_ad_choice"
-        app:csdk_privacy_policy_url="@string/admob_publisher_id"
-        app:csdk_publisher_id="@string/privacy_policy_url" />
+        app:csdk_privacy_policy_url="@string/csdk_privacy_policy_url"
+        app:csdk_publisher_id="@string/csdk_admob_publisher_id" />
 
 </android.support.v7.preference.PreferenceScreen>
