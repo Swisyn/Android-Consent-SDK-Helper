@@ -1,9 +1,9 @@
 package com.cuneytayyildiz.android.consent.sdk.helper.app
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.preference.CheckBoxPreference
-import android.support.v7.preference.PreferenceFragmentCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.CheckBoxPreference
+import androidx.preference.PreferenceFragmentCompat
 import com.cuneytayyildiz.android.consent.sdk.helper.ConsentSDKHelper
 
 class SettingsActivity : AppCompatActivity() {
@@ -19,10 +19,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.settings)
 
         activity?.let {
-            val adChoicePreference = findPreference("preference_ad_choice") as CheckBoxPreference
+            val adChoicePreference = findPreference("preference_ad_choice") as? CheckBoxPreference
 
             if (!ConsentSDKHelper.isUserLocationWithinEea(it)) {
-                adChoicePreference.isVisible = false
+                adChoicePreference?.isVisible = false
             }
         }
     }

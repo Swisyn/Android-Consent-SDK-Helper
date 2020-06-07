@@ -1,39 +1,46 @@
 package com.cuneytayyildiz.android.consent.sdk.helper.preference
 
-
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Build
-import android.support.v7.app.AlertDialog
-import android.support.v7.preference.CheckBoxPreference
-import android.support.v7.preference.PreferenceViewHolder
 import android.text.Html
 import android.text.Spanned
 import android.util.AttributeSet
 import android.util.Log
 import android.widget.TextView
+import androidx.preference.CheckBoxPreference
+import androidx.preference.PreferenceViewHolder
 import com.cuneytayyildiz.android.consent.sdk.helper.ConsentSDKHelper
 import com.cuneytayyildiz.android.consent.sdk.helper.R
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentStatusCallback
 
-class ConsentSDKHelperPreference
-@JvmOverloads
-constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
-) : CheckBoxPreference(context, attrs, defStyleAttr) {
+class ConsentSDKHelperPreference : CheckBoxPreference {
+
+    constructor(context: Context) : super(context) {
+        init(null)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(attrs)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init(attrs)
+    }
 
     private var consentSDKHelper: ConsentSDKHelper? = null
     private var publisherId: String? = null
     private var privacyPolicyURL: String? = null
-    private var titleTextSize: Float
+    private var titleTextSize: Float = 15.0f
 
-    init {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ConsentSDKHelperPreference)
-        publisherId = typedArray.getString(R.styleable.ConsentSDKHelperPreference_csdk_publisher_id)
-        privacyPolicyURL = typedArray.getString(R.styleable.ConsentSDKHelperPreference_csdk_privacy_policy_url)
-        titleTextSize = typedArray.getDimension(R.styleable.ConsentSDKHelperPreference_csdk_title_size, 16f)
-        typedArray.recycle()
+    private fun init(attrs: AttributeSet?) {
+        attrs?.let {
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ConsentSDKHelperPreference)
+            publisherId = typedArray.getString(R.styleable.ConsentSDKHelperPreference_csdk_publisher_id)
+            privacyPolicyURL = typedArray.getString(R.styleable.ConsentSDKHelperPreference_csdk_privacy_policy_url)
+            titleTextSize = typedArray.getDimension(R.styleable.ConsentSDKHelperPreference_csdk_title_size, 16f)
+            typedArray.recycle()
+        }
 
         publisherId?.let { publisherId ->
             privacyPolicyURL?.let { privacyPolicyURL ->
@@ -59,9 +66,7 @@ constructor(
                     .setMessage(context.getString(R.string.preference_opt_out_confirmation_dialog_message).toHtml())
                     .setPositiveButton(R.string.preference_opt_out_confirmation_dialog_ok) { dialog, _ ->
                         dialog.dismiss()
-
                         requestConsent()
-
                     }
                     .setNegativeButton(R.string.preference_opt_out_confirmation_dialog_cancel) { dialog, _ ->
                         dialog.dismiss()
@@ -85,7 +90,7 @@ constructor(
         (holder?.findViewById(android.R.id.title) as TextView).textSize = titleTextSize
     }
 
-    fun String.toHtml(): Spanned {
+    private fun String.toHtml(): Spanned {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
         } else {

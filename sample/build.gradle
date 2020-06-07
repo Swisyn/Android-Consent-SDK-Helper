@@ -1,17 +1,15 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.1'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId 'com.cuneytayyildiz.android.consent.sdk.helper.app'
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 16
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -38,9 +36,15 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:support-compat:$support_lib_version"
-    implementation "com.android.support:preference-v7:$support_lib_version"
-    implementation project(path: ':library')
+    implementation "androidx.appcompat:appcompat:1.1.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+    implementation "androidx.core:core-ktx:1.3.0"
+
+    implementation 'com.google.android.gms:play-services-ads:19.1.0'
+
+    implementation "androidx.preference:preference:1.1.1"
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    implementation project(':library')
 }

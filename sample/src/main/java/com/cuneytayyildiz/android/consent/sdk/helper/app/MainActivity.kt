@@ -3,14 +3,17 @@ package com.cuneytayyildiz.android.consent.sdk.helper.app
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.cuneytayyildiz.android.consent.sdk.helper.ConsentSDKHelper
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentCallback
 import com.cuneytayyildiz.android.consent.sdk.helper.callbacks.ConsentStatusCallback
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.initialization.InitializationStatus
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        MobileAds.initialize(this)
+
         container = findViewById(R.id.container)
         labelTextView = findViewById(R.id.label_gdpr_status)
         buttonChangeConsentSettings = findViewById(R.id.button_change_consent_settings)
@@ -37,6 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         publisherId = getString(R.string.csdk_admob_publisher_id)
         policyURL = getString(R.string.csdk_privacy_policy_url)
+
+
 
         val consentSDK = ConsentSDKHelper(this, publisherId, policyURL, "", BuildConfig.DEBUG, checkBoxEuRegion.isChecked)
         consentSDK.checkConsent(object : ConsentCallback {
