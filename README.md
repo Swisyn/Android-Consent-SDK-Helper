@@ -16,7 +16,7 @@ You can check the [sample](https://github.com/Swisyn/Android-Consent-SDK-Helper/
 Add dependency in your app-level build.gradle
 
 ```groovy
-implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.2'
+implementation 'com.cuneytayyildiz:consent-sdk-helper:1.0.4'
 ```
 
 <b>The constructor has 6 parameters, first 3 of them are mandatory.</b>
@@ -53,31 +53,37 @@ ConsentSDKHelper(this, publisherId, policyURL).checkConsent()
 
 #### To generate ad requests
 
-After you have implemented this library, you should use **ConsentSDKHelper.getAdRequest** function to create new ad requests. 
+After you have implemented this library, you should use something like below to create new ad requests. 
 The function has 3 parameters including 2 optionals to get test ads.
 ```kotlin
-ConsentSDKHelper.getAdRequest(
-context: Context, 
-isDebug: Boolean = false, // To get test ads BuildConfig.DEBUG can be used.
-admobTestDeviceId: String = "" // Check the logcat to get a test device id 
-):
+ private val adRequest: AdRequest
+        get() {
+            return when (BuildConfig.DEBUG) {
+                true -> AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    .addTestDevice(adsTestDeviceId)
+                    .addNetworkExtrasBundle(
+                        AdMobAdapter::class.java,
+                        ConsentSDKHelper.getNetworkExtrasBundle(this@MainActivity)
+                    )
+                    .build()
+                false -> AdRequest.Builder()
+                    .addNetworkExtrasBundle(
+                        AdMobAdapter::class.java,
+                        ConsentSDKHelper.getNetworkExtrasBundle(this@MainActivity)
+                    )
+                    .build()
+            }
+        }
 ```
  
-**for production**
 ```kotlin
     // load a banner ad
-    adView.loadAd(ConsentSDKHelper.getAdRequest(context));
+    adView.loadAd(adRequest);
     // load a Interstitial ad
-    interstitialAd.loadAd(ConsentSDKHelper.getAdRequest(context));
+    interstitialAd.loadAd(adRequest);
 ```
 
-**for development**
-```kotlin
-    // load a banner ad
-    adView.loadAd(ConsentSDKHelper.getAdRequest(context, BuildConfig.DEBUG, admobTestDeviceId));
-    // load a Interstitial ad
-    interstitialAd.loadAd(ConsentSDKHelper.getAdRequest(context, BuildConfig.DEBUG, admobTestDeviceId));
-```
 
 #### Change or revoke consent
 There is also a preference, to allow users to update their consent just like the Google App. 
